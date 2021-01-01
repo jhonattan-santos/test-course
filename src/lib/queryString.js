@@ -17,7 +17,6 @@ export function parse(string) {
       if (value.indexOf(',') > -1) {
         value = value.split(',');
       }
-      console.log([key, value]);
       return [key, value];
     }),
   );
