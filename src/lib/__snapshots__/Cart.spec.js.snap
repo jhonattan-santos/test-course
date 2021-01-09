@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart checkout() should return an object with the total and a list of items 1`] = `
+Object {
+  "products": Array [
+    Object {
+      "product": Object {
+        "name": "Adidas shoes",
+        "price": 39989,
+      },
+      "quantity": 2,
+    },
+    Object {
+      "product": Object {
+        "name": "Adidas shoes for woman",
+        "price": 29989,
+      },
+      "quantity": 1,
+    },
+  ],
+  "total": 109967,
+}
+`;
