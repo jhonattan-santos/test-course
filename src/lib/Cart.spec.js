@@ -7,6 +7,11 @@ describe('Cart', () => {
 		price: 39989,
 	};
 
+	const product2 = {
+		name: 'Adidas shoes for woman',
+		price: 29989,
+	};
+
 	beforeEach(() => {
 		cart = new Cart();
 	});
@@ -37,5 +42,22 @@ describe('Cart', () => {
 		});
 
 		expect(cart.getTotal()).toEqual(39989);
+	});
+
+	it('should update total when a product gets included and then remove one', () => {
+		cart.add({
+			product,
+			quantity: 2,
+		});
+		cart.add({
+			product: product2,
+			quantity: 1,
+		});
+
+		expect(cart.getTotal()).toEqual(109967);
+
+		cart.remove(product);
+
+		expect(cart.getTotal()).toEqual(29989);
 	});
 });
