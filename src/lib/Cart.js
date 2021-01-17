@@ -21,10 +21,23 @@ export class Cart {
 		}, 0);
 	}
 
-	checkout() {
+	summary() {
+		const total = this.getTotal();
+		const products = this.items;
+
 		return {
-			total: this.getTotal(),
-			products: this.items,
+			total,
+			products,
+		};
+	}
+
+	checkout() {
+		const { total, products } = this.summary();
+		this.items = [];
+
+		return {
+			total,
+			products,
 		};
 	}
 }

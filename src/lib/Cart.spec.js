@@ -78,4 +78,35 @@ describe('Cart', () => {
 			expect(cart.checkout()).toMatchSnapshot();
 		});
 	});
+
+	it('should reset cart when checkout() is called', () => {
+		cart.add({
+			product,
+			quantity: 2,
+		});
+
+		cart.add({
+			product: product2,
+			quantity: 1,
+		});
+
+		cart.checkout();
+
+		expect(cart.getTotal()).toEqual(0);
+	});
+
+	it('should return an object with the total when summary() is called', () => {
+		cart.add({
+			product,
+			quantity: 2,
+		});
+
+		cart.add({
+			product: product2,
+			quantity: 1,
+		});
+
+		expect(cart.summary()).toMatchSnapshot();
+		expect(cart.getTotal()).toBeGreaterThan(0);
+	});
 });
